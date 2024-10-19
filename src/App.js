@@ -2,6 +2,7 @@ import './App.css';
 import photo1 from './img/photo1.png';
 import photo2 from './img/photo2.png';
 
+//  CONTENT OBJECT
 const content = {
 
   layout1: {
@@ -26,9 +27,12 @@ const content = {
 }
 
 //  RESPONSIVE REUSABLE COMPONENT 
-function App({content, flipped, backgroundColor, textPosition}) {
+function App({content, flipped, darkBackgroundColor, lightBackgroundColor, textPosition}) {
   return (
-    <div className={`container ${flipped && 'flipped-layout'} ${backgroundColor && 'background-color'}`}>
+    <div 
+      className={`container ${flipped && 'flipped-layout'}`}
+      style={{ backgroundColor: darkBackgroundColor ? darkBackgroundColor : lightBackgroundColor ? lightBackgroundColor : '' }}  
+    >
 
       <div className='img-container'>
         <img 
@@ -37,11 +41,11 @@ function App({content, flipped, backgroundColor, textPosition}) {
       </div>
 
       <div className={`text-container ${textPosition === 'top' ? 'text-position-top' : textPosition === 'bottom' ? 'text-position-bottom' : ''}`}>
-        <h1 style={{color: backgroundColor && '#ffffff'}}>
+        <h1 style={{color: darkBackgroundColor && '#ffffff'}}>
           {content.headline}
         </h1>
         <h2>{content.tagline}</h2>
-        <p style={{color: backgroundColor && '#ffffff'}}>
+        <p style={{color: darkBackgroundColor && '#ffffff'}}>
           {content.text}
         </p>
       </div>

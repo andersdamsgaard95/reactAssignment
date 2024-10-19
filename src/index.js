@@ -12,9 +12,9 @@ root.render(
 
     <App content={content.layout2} flipped={true} />
 
-    <App content={content.layout1} flipped={false} textPosition={'top'} />
+    <App content={content.layout1} flipped={false} textPosition={'top'} lightBackgroundColor={'#E6E1DE'} />
 
-    <App content={content.layout2} flipped={true} textPosition={'bottom'} backgroundColor={true} />
+    <App content={content.layout2} flipped={true} textPosition={'bottom'} darkBackgroundColor={'#580030'} />
 
   </React.StrictMode>
 );

@@ -46,10 +46,6 @@ h2 {
   align-self: end;
 }
 
-.background-color {
-  background-color: #580030 !important;
-}
-
 /* MEDIA QUERIES */
 @media screen and (max-width: 700px) {
   .container {
