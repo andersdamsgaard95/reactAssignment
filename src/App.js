@@ -28,10 +28,24 @@ const content = {
 
 //  RESPONSIVE REUSABLE COMPONENT 
 function App({content, flipped, darkBackgroundColor, lightBackgroundColor, textPosition}) {
+  
+  const backgroundColor = darkBackgroundColor || lightBackgroundColor || '';
+  const textColor = darkBackgroundColor ? '#ffffff' : '';
+  
+  let textPositionClass;
+  if (textPosition === 'top') {
+    textPositionClass = 'text-position-top';
+  } else if (textPosition === 'bottom') {
+    textPositionClass = 'text-position-bottom';
+  } else {
+    textPositionClass = '';
+  }
+
+  
   return (
     <div 
       className={`container ${flipped && 'flipped-layout'}`}
-      style={{ backgroundColor: darkBackgroundColor ? darkBackgroundColor : lightBackgroundColor ? lightBackgroundColor : '' }}  
+      style={{ backgroundColor: backgroundColor }}  
     >
 
       <div className='img-container'>
@@ -40,12 +54,12 @@ function App({content, flipped, darkBackgroundColor, lightBackgroundColor, textP
         alt={content.photo.alt} />
       </div>
 
-      <div className={`text-container ${textPosition === 'top' ? 'text-position-top' : textPosition === 'bottom' ? 'text-position-bottom' : ''}`}>
-        <h1 style={{color: darkBackgroundColor && '#ffffff'}}>
+      <div className={`text-container ${textPositionClass}`}>
+        <h1 style={{ color: textColor }}>
           {content.headline}
         </h1>
         <h2>{content.tagline}</h2>
-        <p style={{color: darkBackgroundColor && '#ffffff'}}>
+        <p style={{ color: textColor }}>
           {content.text}
         </p>
       </div>
